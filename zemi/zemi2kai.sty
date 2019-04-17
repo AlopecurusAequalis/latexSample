@@ -1,0 +1,98 @@
+%ここに, 沢山, 日本語の文章を書いておくと,
+%エンコードの自動判定で失敗しない. ハズ.
+
+% Style file for zemi twocolumn
+% 2005-09-07
+% Copyright (C) 2005 by Mitsuo Hirata
+
+%
+% Paper size
+%
+\textwidth 17cm
+\textheight 25cm
+\oddsidemargin -5mm
+\evensidemargin\oddsidemargin
+%
+\topmargin  -10mm
+\headheight 5mm
+\headsep    5mm
+%
+\columnsep  10mm
+\parindent  1zw
+%\mathindent 1zw
+
+%\renewcommand{\figurename}{図}
+%\renewcommand{\tablename}{表}
+
+
+%
+% Section parameters
+%
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+   {.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+   {.001\Cvs \@plus.3\Cdp}%
+   {\reset@font\Large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+   {.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+   {.001\Cvs \@plus.3\Cdp}%
+   {\reset@font\large\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+   {.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+   {.001\Cvs \@plus.3\Cdp}%
+   {\reset@font\normalsize\bfseries}}
+
+%
+% bibliograph
+%
+\renewenvironment{thebibliography}[1]
+{\section*{\refname\@mkboth{\refname}{\refname}}%
+%   \small
+   \list{\@biblabel{\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \parsep=0pt
+         \itemsep=0pt
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m}
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+
+%
+% Title and Authors
+%
+\renewcommand{\maketitle}{%
+\twocolumn[
+\centering
+{\small 平田研究室 \hspace{3mm} 進捗報告}\\
+{\LARGE\bf \@title \par}
+\vspace{1zh}
+{\large\hfill \@date \@author \par}
+\vspace{2zh}
+]
+\sloppy\flushbottom
+}
+
+
+%
+%input Confidential
+%
+\makeatletter
+\def\ps@confidential{\let\@mkboth\@gobbletwo
+	\def\@oddhead{Confidential}
+	\def\@oddfoot{\hfil \thepage\ \hfil}
+	\def\@evenhead{Confidential}
+	\def\@evenfoot{\hfil \thepage\ \hfil}
+}
+\makeatother
+\pagestyle{confidential}
+%
+%% EOF
