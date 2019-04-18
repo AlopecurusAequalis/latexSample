@@ -2,3 +2,4 @@
 *.dvi
 *.aux
 zemi/latexZemiSample.pdf
+zemi/figure/safePdfCrop.bat
