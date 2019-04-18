@@ -10,6 +10,7 @@
 % 数学関係のパッケージ
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{ascmac}
 \usepackage{theorem}
 \newtheorem{defi}{定義}[section]
 
@@ -22,8 +23,10 @@
 % 図を書くのに使うパッケージ
 \usepackage{tikz}
 
-% URL挿入するアレ
+% URL挿入するのに使うパッケージ
 \usepackage{url}
+
+% \newcommand{tfFrac}
 
 \title{楽しい\LaTeX}
 \author{平田研究室の誰か}
@@ -43,7 +46,7 @@
     % [b]だと，ページの下に置くってこと．
     % [tbp]なら，「上，ダメなら下，それもダメなら独立したページ」
     % LaTeXの図配置は思い通りにいかない事が多い．適度な諦めも大事．
-    % ちなみに，図はキャプションが下に置き，表はキャプションを上に置くので，
+    % ちなみに，図はキャプションを下に置き，表はキャプションを上に置くので，
     % 図はページの下に，表はページの上に置くと，文字がページの中央部分にまとまるのでおしゃれ．
     \begin{table}[b]
       \center
@@ -77,10 +80,10 @@
   等々の人生のあらゆる場面で必要となる文書を作成する際に役立つでしょう．
 
 \section{数式}
-  文章には数式がつきものですが$^\text{[要出典]}$，
-  前述のように，\LaTeX で文章を作成するメリットは数式を容易に挿入できるということです．
+  文章には数式がつきもの$^\text{[要出典]}$，
+  前述のように，\LaTeX で文章を作成するメリットは数式を容易に挿入可能である．
   例えば，文中で，
-  $\operatorname{card}(\mathbb{R}) = \operatorname{card}(\mathbb{R}^2)$のようにかけます．
+  $\operatorname{card}(\mathbb{R}) = \operatorname{card}(\mathbb{R}^2)$のように．
   % 以後では「線型代数の初歩」をテーマに文章を書きました．
   % \subsection{固有値}
   %     \begin{defi}[固有値]
@@ -151,34 +154,32 @@
   %         \operatorname{det}\left(A - \lambda \mathrm{E} \right) = 0
   %       \end{equation}
   %     となれば良いということです．固有値を求めたあと，求めた固有値に対して固有ベクトルが求まります．
-
-  \subsection{別立てで数式を書く場合}
-    ゴッツイ式は別立てして書くのが普通です．式番号がいらない場合は，
-      \[
-        \forall \epsilon > 0 \quad \exists \delta > 0 \quad
-        \text{s.t.} \quad
-          \|x(0)\| < \delta \Rightarrow ||x(t)|| < \epsilon
-      \]
-    式番号がいる場合は，
-      \begin{equation}
-        \operatorname{dim}\operatorname{Ker}
-          \exp(A) \neq 0
-      \end{equation}
-    みたいな感じ．ここで気をつけてほしいのは，
-    $\sin$とか$\exp$みたいな「みんなが知ってる関数」を
-    $sin$, $exp$みたいにイタリック\footnote{斜めになってる字のこと．
-      ただし，イタリックのことを「斜体」というと組版警察やフォント警察に叩かれる．}で書くとクソダサい．
-    \par 括弧の中の式が`大きい'場合は，一工夫しないと左みたいに見苦しくなる．
-      \begin{equation}
-        57(\frac{1}{s^2 + 2s + 1} + 2) =57\left(\frac{1}{(s + 1)^2} + 2 \right)
-      \end{equation}
-    複数の式が続く場合，\texttt{align}環境を使う．
-    \texttt{eqnarray}環境だとスペースの両端の空白が大きくてダサい．
-      % 揃えたい記号の直前に&を置く
-      \begin{align}
-        \sin(x) &= \sin(x + 2\pi) \\
-        &= \sum_{n = 0}^{\infty} (-1)^{n}\frac{x^{(2n + 1)}}{(2n + 1)!}
-      \end{align}
+  \par ゴッツイ式は別立てして書くのが普通．式番号がいらない場合は，
+    \[
+      \forall \epsilon > 0 \quad \exists \delta > 0 \quad
+      \text{s.t.} \quad
+        \|x(0)\| < \delta \Rightarrow ||x(t)|| < \epsilon
+    \]
+  式番号がいる場合は，
+    \begin{equation}
+      \operatorname{dim}\operatorname{Ker}
+        \exp(A) \neq 0
+    \end{equation}
+  みたいな感じ．ここで気をつけてほしいのは，
+  $\sin$とか$\exp$みたいな「みんなが知ってる関数」を
+  $sin$, $exp$みたいにイタリック\footnote{斜めになってる字のこと．
+    ただし，イタリックのことを「斜体」というと組版警察やフォント警察に叩かれる．}で書くとクソダサい．
+  \par 括弧の中の式が`大きい'場合は，一工夫しないと左みたいに見苦しくなる．
+    \begin{equation}
+      57(\frac{1}{s^2 + 2s + 1} + 2) =57\left(\frac{1}{(s + 1)^2} + 2 \right)
+    \end{equation}
+  複数の式が続く場合，\texttt{align}環境を使う．
+  \texttt{eqnarray}環境だとスペースの両端の空白が大きくてダサい．
+    % 揃えたい記号の直前に&を置く
+    \begin{align}
+      \sin(x) &= \sin(x + 2\pi) \\
+      &= \sum_{n = 0}^{\infty} (-1)^{n}\frac{x^{(2n + 1)}}{(2n + 1)!}
+    \end{align}
 \section{図}
   しばしば図を入れる機会がある，例えば，図\ref{pht_doyle}みたいに．
     % 図番号を自分で考えて書く必要はない．
@@ -187,6 +188,7 @@
     \begin{figure}[tbp]
       % \begin{center} ~ \end{center}とすると，
       % 図の周りの余白が大きくなってしまう．
+      % \centeringがおすすめ．何より1行で済む．
       \centering
       % width = 0.95\columnwidth ← 文の横幅の0.95倍を図の横幅にする
       \includegraphics[width = 0.95\columnwidth]{figure/doyle_photo.jpg}
@@ -197,15 +199,28 @@
     図\ref{fig_ciclesonide}はベクター画像で，いくら拡大してもドットが見えません．
       \begin{figure}[tbp]
         \centering
-        \includegraphics[width = 5cm]{figure/ciclesonide.pdf}
+        \includegraphics[width = 5cm]{figure/chemi_vec.pdf}
         \caption{ベクター画像の例: いくら拡大しても粗が目立たない．} \label{fig_ciclesonide}
       \end{figure}
     通常のデジカメで撮影した写真や，出典元がラスター画像しか用意していない場合には，
     図\ref{pht_doyle}のようにラスター画像を使ってください．
+\section{楽しいLua\LaTeX}
+  将来，こんなことが起きるかもしれません．
+    \begin{screen}
+      3歳娘「パパ (ママ)，文中に入れた伝達関数が安定か判定するマクロを作って．」\\
+      3歳娘「Matlab, Scilabを行き来せずに，.texファイルの編集が即反映されるようにして．」\\
+      3歳娘「みんな持ってるの」\\
+      3歳娘「私だけ持ってないの」\\
+      ワイ「(どうやって，実装したらええんや……)」
+    \end{screen}
+  \TeX 言語だけで，伝達関数の安定性を判別するのは難しいかもしれません．
+  しかし，Lua\LaTeX を使えば，簡単に実行できます．
+
 
 \section{その他}
   \url{https://ichiro-maruta.blogspot.com/2013/03/latex.html} \\
   \url{https://www.math.tohoku.ac.jp/tmj/oda_tex.pdf}\\
-  この辺読んどいて．
+  この辺読んどいて．ネットでググった情報や，先輩からもらったファイルは糞古い書き方とか，
+  正しくない書き方とかが残されているので全部うのみにするのはアレ．
 
 \end{document}
