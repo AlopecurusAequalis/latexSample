@@ -1,18 +1,14 @@
 % 日本人向けのa4用紙，dvipdfmxってのとuplatexを使うよ，twocolumn--2段組だよ．
 % jarticleではなく，j`s'article
-% \documentclass[a4j, uplatex, dvipdfmx]{jsarticle}
-\documentclass[lualatex,a4paper,ja = standard, twoside, twocolumn]{bxjsarticle}
+\documentclass[a4j, dvipdfmx]{jsarticle}
 
 % \documentclass の行から，\begin{document}の間をプリアンブルといいます．
 % \usepackage{zemi2kai}
-\usepackage{zemi2kaiLua}
 
 % 数学関係のパッケージ
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{ascmac}
-\usepackage{theorem}
-\newtheorem{defi}{定義}[section]
 
 % 図を入れるのに使うパッケージ
 % ちなみに，上の\documentclassのところにdvipdfmxと書かずに，
@@ -20,8 +16,6 @@
 % 個人的にはおすすめしない．
 \usepackage{graphicx}
 
-% 図を書くのに使うパッケージ
-\usepackage{tikz}
 
 % URL挿入するのに使うパッケージ
 \usepackage{url}
@@ -204,17 +198,6 @@
       \end{figure}
     通常のデジカメで撮影した写真や，出典元がラスター画像しか用意していない場合には，
     図\ref{pht_doyle}のようにラスター画像を使ってください．
-\section{楽しいLua\LaTeX}
-  将来，こんなことが起きるかもしれません．
-    \begin{screen}
-      3歳娘「パパ (ママ)，文中に入れた伝達関数が安定か判定するマクロを作って．」\\
-      3歳娘「Matlab, Scilabを行き来せずに，.texファイルの編集が即反映されるようにして．」\\
-      3歳娘「みんな持ってるの」\\
-      3歳娘「私だけ持ってないの」\\
-      ワイ「(どうやって，実装したらええんや……)」
-    \end{screen}
-  \TeX 言語だけで，伝達関数の安定性を判別するのは難しいかもしれません．
-  しかし，Lua\LaTeX を使えば，簡単に実行できます．
 
 
 \section{その他}

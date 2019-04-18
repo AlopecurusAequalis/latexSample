@@ -3,3 +3,7 @@
 *.aux
 zemi/latexZemiSample.pdf
 zemi/figure/safePdfCrop.bat
+*.fls
+*.synctex(busy)
+*.gz
+*.fdb_latexmk
