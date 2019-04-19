@@ -1,9 +1,11 @@
 % 日本人向けのa4用紙，dvipdfmxってのとuplatexを使うよ，twocolumn--2段組だよ．
 % jarticleではなく，j`s'article
-\documentclass[a4j, dvipdfmx]{jsarticle}
+% \documentclass[a4j, dvipdfmx]{jsarticle}
+\documentclass[lualatex,a4paper,ja = standard, twoside, twocolumn]{bxjsarticle}
 
 % \documentclass の行から，\begin{document}の間をプリアンブルといいます．
-\usepackage{zemi2kai}
+% \usepackage{zemi2kai}
+\usepackage{zemi2kaiLua}
 
 % 数学関係のパッケージ
 \usepackage{amsmath}
@@ -78,76 +80,6 @@
   前述のように，\LaTeX で文章を作成するメリットは数式を容易に挿入可能である．
   例えば，文中で，
   $\operatorname{card}(\mathbb{R}) = \operatorname{card}(\mathbb{R}^2)$のように．
-  % 以後では「線型代数の初歩」をテーマに文章を書きました．
-  % \subsection{固有値}
-  %     \begin{defi}[固有値]
-  %       行列$A$に対して，
-  %         \[
-  %           Av = \lambda v
-  %         \]
-  %       を満たす0でないベクトル$v$\footnote{
-  %           「え，ベクトルって太字か二重文字で書くんじゃないの?」と思うかもしれませんが，
-  %           分野によっては「みりゃあわかるでしょｗｗｗ」ということで普通の文字で書きます．
-  %         }を「固有ベクトル」，$\lambda$を「固有値」という．
-  %     \end{defi}
-  %   行列にベクトルを作用させると，通常は「向き」が変わります．例えば，
-  %     \begin{equation}
-  %       \begin{bmatrix}
-  %         4 & 12 \\
-  %         6 & 14
-  %       \end{bmatrix}
-  %       \begin{bmatrix}
-  %         1 \\ 2
-  %       \end{bmatrix} =
-  %         \begin{bmatrix}
-  %           2 \\ 16
-  %         \end{bmatrix}
-  %     \end{equation}
-  %   ですが，行列を掛ける前のベクトル$[1, 2]^\top$をいくら伸ばしたり縮めても，
-  %   行列を掛けたあとの行列$[2, 16]^\top$にはなりません．
-  %   これは行列を掛けたことによって向きが変わったと解釈できます．
-  %   しかし，あるベクトルは向きが変わらず長さのみが変化します．例えば，
-  %     \begin{equation}
-  %       \begin{bmatrix}
-  %         4 & 12 \\
-  %         6 & 14
-  %       \end{bmatrix}
-  %       \begin{bmatrix}
-  %         1 \\ -1
-  %       \end{bmatrix} =
-  %         \begin{bmatrix}
-  %           8 \\ -8
-  %         \end{bmatrix} = 8
-  %           \begin{bmatrix}
-  %             1 \\ -1
-  %           \end{bmatrix}
-  %     \end{equation}
-  %   となります．行列を掛ける前のベクトルを8倍すれば，行列を掛けたあとのベクトルと同じ，
-  %   つまり行列を掛けても向きが変わらないということです．
-  %   まとめると，
-  %     \begin{itemize}
-  %       \item 固有ベクトル\\
-  %         ある行列に対して，行列を掛けても向きが変わらないベクトル．
-  %       \item 固有値\\
-  %         固有ベクトルに行列を掛けたとき，どのくらい伸び縮みするかの倍数．
-  %     \end{itemize}
-  %   となります．
-  %   \subsubsection{固有値と固有ベクトルの求め方}
-  %     固有ベクトルを求める前に，固有値を求めます．
-  %     固有値と固有ベクトルの定義から，
-  %       \begin{align}
-  %         Av &= \lambda v \\
-  %         Av - \lambda v &= 0 \\
-  %         \left(A - \lambda \mathrm{E} \right)v &= 0 \label{eq_eig}
-  %       \end{align}
-  %     となります．ここで，もし，$A - \lambda \mathrm{E}$に逆行列が存在すると，
-  %     $\left(A - \lambda \mathrm{E} \right)^{-1}$を左からかけて，$v = 0$となってしまいます．
-  %     ということは，$A - \lambda \mathrm{E}$に逆行列が存在しなければ好都合です．
-  %     つまり，
-  %       \begin{equation}
-  %         \operatorname{det}\left(A - \lambda \mathrm{E} \right) = 0
-  %       \end{equation}
-  %     となれば良いということです．固有値を求めたあと，求めた固有値に対して固有ベクトルが求まります．
   \par ゴッツイ式は別立てして書くのが普通．式番号がいらない場合は，
     \[
       \forall \epsilon > 0 \quad \exists \delta > 0 \quad
