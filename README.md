@@ -1,5 +1,9 @@
-## 使い方
+## zemiフォルダ
 
-zemi2kai.styとlatexZemiSample.texをダウンロードして，同じディレクトリに置く．
-latexZemiSample.texをコンパイル．
-(zemi2kai.styをtex-localに置いても良い．)
+進捗ゼミを前提とした.texのサンプルです．
+
+* latexZemiSample.tex
+サンプルの本体です．
+
+* zemi2kai.sty
+ゼミ資料作成時となるテンプレートファイルです．
