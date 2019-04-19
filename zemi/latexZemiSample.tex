@@ -1,11 +1,9 @@
 % 日本人向けのa4用紙，dvipdfmxってのとuplatexを使うよ，twocolumn--2段組だよ．
 % jarticleではなく，j`s'article
-% \documentclass[a4j, dvipdfmx]{jsarticle}
-\documentclass[lualatex,a4paper,ja = standard, twoside, twocolumn]{bxjsarticle}
+\documentclass[a4j, dvipdfmx]{jsarticle}
 
 % \documentclass の行から，\begin{document}の間をプリアンブルといいます．
-% \usepackage{zemi2kai}
-\usepackage{zemi2kaiLua}
+\usepackage{zemi2kai}
 
 % 数学関係のパッケージ
 \usepackage{amsmath}
@@ -51,7 +49,7 @@
         特徴 & \LaTeX & Word \\ \hline
         値段 & 無料 & 結構高い \\
         数式 & 得意 & 苦手 \\
-        Linuxで & 動く & 動かない \\
+        Linuxで & 動く & 動かないa \\
         出力品質 & 高い & 低い \\
         自由か? & 自由 & proprietary \\
         source control & Git等で容易 & 困難 \\
