@@ -199,6 +199,35 @@
     通常のデジカメで撮影した写真や，出典元がラスター画像しか用意していない場合には，
     図\ref{pht_doyle}のようにラスター画像を使ってください．
 
+\section{やりがち間違い集}
+\section{クオーテーションの向き}
+  初めのクオーテーションと終わりのクオーテーションは向きを変えます．
+  \\
+    \begin{tabular}{r|r}
+      ''Bad'' & \texttt{''Bad''} \\
+      ``Good'' & \texttt{``Good''}
+    \end{tabular}
+  \\
+  研究室の殆どのキーボードでは \texttt{Shift} $+$ \texttt{@} で\texttt{`}が入力できるはずです．
+\section{単位を書くのには\texttt{siunitx}を使うと便利}
+  単位はローマン体で書きます．\texttt{siunitx}パッケージを使うと便利です．
+  \\
+    \begin{tabular}{r|r|r}
+      悪い例: & $5\times 10^3 N.m$ & \verb|$5\times 10^3 N.m$| \\
+      良い例: & \SI{5e3}{N.m} & \verb|\SI{5e3}{N.m}|
+    \end{tabular}
+\section{数式はカンマで区切る}
+  数式を列挙する際にはカンマで区切ります．
+  また，好みの問題ですが，数式の途中改行の場合には，
+  改行後に\verb|\quad|を入れると見やすいと思います．
+  更に，\texttt{eqnarray}ではなく\texttt{align}を使うと$=$の横スペースを小さくできます．
+    \begin{align}
+      \sin x &= x - \frac{x^3}{3!} + \frac{x^5}{5!} \cdots , \\
+      \mathrm{e}^{\mathrm{i} x} &= 1 + \frac{\mathrm{i}x}{1!} + \frac{(\mathrm{i}x)^2}{2!} + \frac{(\mathrm{i}x)^3}{3!} + \cdots  \\
+      &= \left(1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots \right) \nonumber\\
+      &\quad + \mathrm{i}\left(x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots \right) \\
+      &= \cos x + \mathrm{i}\sin x .
+    \end{align}
 
 \section{その他}
   \url{https://ichiro-maruta.blogspot.com/2013/03/latex.html} \\
