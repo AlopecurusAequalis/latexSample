@@ -1,0 +1,48 @@
+% 日本人向けのa4用紙，dvipdfmxってのとuplatexを使うよ，twocolumn--2段組だよ．
+% jarticleではなく，j`s'article
+% \documentclass[a4j, dvipdfmx]{jsarticle}
+\documentclass[a4j, twocolumn]{jsarticle}
+% 数学関係のパッケージ
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{ascmac}
+
+% 図を入れるのに使うパッケージ
+% ちなみに，上の\documentclassのところにdvipdfmxと書かずに，
+% \usepackage[dvipdfmx]{graphicx} って派閥があるけど，
+% 個人的にはおすすめしない．
+\usepackage{graphicx}
+
+
+% URL挿入するのに使うパッケージ
+\usepackage{url}
+
+\usepackage{lipsum}
+
+\usepackage{zemi2Alt}
+\title{楽しい\LaTeX}
+\author{平田研究室の誰か}
+\date{\today}
+
+\begin{document}
+\maketitle
+\pagestyle{fancy}
+\section{表記に拘る}
+  zemi (無印) フォルダで「$\sin$, $\exp$のようにみんなが知っている関数はイタリックにしない．」
+  と書きました．それを敷衍すると，
+    \[
+      e^{A},
+    \]
+
+\section{Ti\textit{i}Z}
+
+\lipsum[1-5]
+
+
+\section{その他}
+  \noindent \url{https://ichiro-maruta.blogspot.com/2013/03/latex.html} \\
+  \url{https://www.math.tohoku.ac.jp/tmj/oda_tex.pdf}\\
+  この辺読んどいて．ネットでググった情報や，先輩からもらったファイルは糞古い書き方とか，
+  正しくない書き方とかが残されているので全部うのみにするのはアレ．
+
+\end{document}
